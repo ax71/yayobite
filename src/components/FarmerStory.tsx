@@ -1,120 +1,97 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import { MapPin, Quote } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ChevronUp } from "lucide-react";
 import Image from "next/image";
-
-const fadeInLeft: Variants = {
-  hidden: { opacity: 0, x: -40 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
-const fadeInRight: Variants = {
-  hidden: { opacity: 0, x: 40 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
+import { useState } from "react";
 
 export default function FarmerStory() {
-  return (
-    <section className="py-24 md:py-32 bg-stone-50 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section Label */}
-        <motion.div
-          className="flex items-center gap-3 mb-16 justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="h-px w-10 bg-amber-600/40" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-amber-700">
-            Cerita Petani
-          </span>
-          <div className="h-px w-10 bg-amber-600/40" />
-        </motion.div>
+  const [isExpanded, setIsExpanded] = useState(false);
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          {/* Photo — Left */}
+  return (
+    <section
+      id="cerita"
+      className="px-6 py-24 md:py-32 bg-[#F9F5F2] rounded-[3rem] mx-4 my-20 overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <motion.div
-            variants={fadeInLeft}
-            initial="hidden"
-            whileInView="visible"
+            className="lg:col-span-6 space-y-8"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            transition={{ duration: 0.8 }}
           >
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-stone-900/20">
-              <Image
-                src="/pak-made.png"
-                alt="Pak Made, petani kakao dari Bali"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              {/* Warm overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-amber-900/30 via-transparent to-transparent" />
+            <div className="space-y-4">
+              <h2 className="font-headline text-4xl md:text-6xl text-[#3D2B1F] leading-[1.1] font-bold text-center md:text-left">
+                Kenalin, Pak Made. Pahlawan di Balik Cokelatmu.
+              </h2>
             </div>
 
-            {/* Floating location tag */}
-            <div className="absolute -bottom-5 -right-4 md:-right-8 bg-white rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2 border border-stone-100">
-              <MapPin size={14} className="text-amber-600 flex-shrink-0" />
-              <div>
-                <p className="text-[10px] text-stone-500 leading-none">Kebun Kakao</p>
-                <p className="text-xs font-semibold text-stone-800 mt-0.5">Tabanan, Bali 🌿</p>
+            <div className="space-y-6">
+              <p className="font-body text-lg md:text-xl text-gray-700 leading-relaxed text-center md:text-left">
+                Yes, brownies kamu nggak muncul tiba-tiba. Dari perkebunan asri
+                di Bali, Pak Made merawat setiap pohon kakao dengan cinta.
+              </p>
+
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="overflow-hidden"
+                  >
+                    <p className="font-body text-base md:text-lg text-gray-600 leading-relaxed pt-4 border-t border-primary/10">
+                      Melalui kerjasama langsung ini, Yayobite memastikan Pak
+                      Made menerima harga 30% lebih tinggi yang ia gunakan untuk
+                      membiayai pendidikan tinggi anak-anaknya.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <div className="flex justify-center md:justify-start">
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="group flex items-center gap-3 text-primary font-bold text-lg"
+                >
+                  <span>{isExpanded ? "Tutup Cerita" : "Cerita Lengkap"}</span>
+                  {isExpanded ? (
+                    <ChevronUp size={22} />
+                  ) : (
+                    <ArrowRight size={22} />
+                  )}
+                </button>
               </div>
             </div>
 
-            {/* Decorative blob */}
-            <div className="absolute -top-8 -left-8 w-40 h-40 rounded-full bg-amber-200/40 blur-3xl -z-10" />
-          </motion.div>
-
-          {/* Story — Right */}
-          <motion.div
-            variants={fadeInRight}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <h2
-              className="text-4xl md:text-5xl font-bold text-stone-800 leading-tight mb-6"
-              style={{ fontFamily: "var(--font-playfair)" }}
-            >
-              Ketemu{" "}
-              <span className="text-amber-700 italic">Pak Made</span>,
-              <br />
-              si Bapak di balik
-              <br />
-              browniesmu.
-            </h2>
-
-            <div className="relative pl-5 border-l-2 border-amber-400 mb-8">
-              <Quote size={20} className="text-amber-400 mb-2" />
-              <p className="text-stone-600 text-base leading-relaxed">
-                Sudah 20 tahun Pak Made merawat kebun kakaonya. Bukan cuma soal
-                panen — setiap biji kakao dipilih dengan tangan, dijemur alami,
-                dan dikirim langsung ke dapur kami.
+            <div className="bg-white p-6 md:p-8 rounded-2xl border-l-8 border-primary shadow-lg">
+              <p className="italic font-headline text-xl md:text-2xl text-[#3D2B1F]">
+                &quot;Setiap panen yang kalian nikmati adalah sekolah untuk
+                anak-anak kami.&quot;
+              </p>
+              <p className="mt-4 font-bold text-primary">
+                — Pak Made, Petani Kakao
               </p>
             </div>
+          </motion.div>
 
-            <p className="text-stone-500 text-sm leading-relaxed mb-10">
-              Tanpa middleman. Tanpa bahan impor. Hanya kepercayaan antara petani
-              dan kamu — diikat lewat setiap kotak brownies.
-            </p>
-
-            {/* Stats row */}
-            <div className="grid grid-cols-3 gap-4">
-              {[
-                { value: "20+", label: "Tahun berkebun" },
-                { value: "100%", label: "Bahan lokal" },
-                { value: "0", label: "Bahan impor" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="text-center p-4 rounded-2xl bg-amber-50 border border-amber-100"
-                >
-                  <p className="text-2xl font-bold text-amber-800">{stat.value}</p>
-                  <p className="text-xs text-stone-500 mt-1 leading-tight">{stat.label}</p>
-                </div>
-              ))}
+          <motion.div
+            className="lg:col-span-6 w-full"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden relative shadow-2xl border-4 md:border-8 border-white">
+              <Image
+                src="/pak-made.png"
+                alt="Indonesian cocoa farmer"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </motion.div>
         </div>

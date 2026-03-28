@@ -1,106 +1,73 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero-bg.png"
-          alt="Kebun kakao Bali"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        {/* Dark overlay with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {/* Badge */}
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase text-amber-200 border border-amber-300/40 rounded-full bg-white/10 backdrop-blur-sm"
-          >
-            🌱 Langsung dari kebun Bali
-          </motion.span>
-
-          {/* Main Headline */}
+    <section className="relative px-4 sm:px-6 lg:px-8 py-12 md:py-24 max-w-[1400px] mx-auto">
+      <div className="flex flex-col-reverse md:grid md:grid-cols-12 items-center gap-12 lg:gap-20">
+        <div className="md:col-span-7 z-10 text-center md:text-left">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.3 }}
-            className="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-6"
-            style={{ fontFamily: "var(--font-playfair)" }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="font-headline text-4xl sm:text-5xl lg:text-7xl leading-[1.1] text-[#3D2B1F] mb-6 md:mb-8 font-bold tracking-tight"
           >
-            Dari Petani
-            <br />
-            <span className="text-amber-300">ke Brownies</span>
-            <br />
-            Kamu.
+            Dari Petani ke <br />
+            <span className="italic text-primary font-serif">
+              Brownies Kamu
+            </span>
           </motion.h1>
 
-          {/* Sub-headline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.55 }}
-            className="text-lg md:text-xl text-white/80 font-light mb-10 max-w-md mx-auto"
-          >
-            Snack kamu hari ini bantu siapa, sih?
+          <motion.p className="text-lg md:text-xl text-gray-700 mb-8 md:mb-10 leading-relaxed max-w-xl mx-auto md:mx-0">
+            Snack kamu hari ini bantu siapa? Kenalan yuk sama jejak manis di
+            balik setiap gigitan brownies kamu.
           </motion.p>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.75 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center items-center"
-          >
-            <a
+          <motion.div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6">
+            <Link
               href="#order"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-amber-400 hover:bg-amber-300 text-stone-900 font-semibold text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/30"
+              className="bg-primary text-white px-8 py-3.5 rounded-full font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all w-full sm:w-auto text-center shadow-md"
             >
-              Order Sekarang →
-            </a>
-            <a
-              href="#journey"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-sm tracking-wide border border-white/30 backdrop-blur-sm transition-all duration-300"
+              Dukung Petani Lokal
+            </Link>
+            <Link
+              href="#cerita"
+              className="group flex items-center gap-2 text-primary font-bold py-2"
             >
-              Lihat Ceritanya
-            </a>
+              <span className="border-b-2 border-primary/30 group-hover:border-primary transition-all">
+                Pelajari Cerita Kami
+              </span>
+              <ArrowRight
+                size={20}
+                className="group-hover:translate-x-2 transition-transform"
+              />
+            </Link>
           </motion.div>
+        </div>
+
+        <motion.div
+          className="md:col-span-5 relative flex justify-center md:justify-end w-full"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+        >
+          <div className="relative w-full max-w-[280px] sm:max-w-[350px] lg:max-w-[420px] aspect-square">
+            <div className="absolute inset-0 bg-primary/15 rounded-full blur-[60px] md:blur-[80px] -z-10 scale-125" />
+
+            <div className="relative w-full h-full rounded-full overflow-hidden border-[8px] md:border-[14px] border-white shadow-2xl">
+              <Image
+                src="/hero-image.svg"
+                alt="Brownies Cacao"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/50"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-      >
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-        >
-          <ChevronDown size={18} />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

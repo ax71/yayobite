@@ -1,30 +1,39 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { EB_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-display",
+const manrope = Manrope({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const ebGaramond = EB_Garamond({
+  variable: "--font-headline",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Yayobite — Dari Petani ke Brownies Kamu",
+  title: "Yayobite — Brownies sehat untuk kamu",
   description:
     "Brownies artisan lokal dari bahan kakao Bali. Setiap gigitan kamu mendukung petani lokal dan alam kita.",
-  keywords: ["brownies", "lokal", "petani", "kakao", "bali", "artisan"],
+  keywords: [
+    "brownies",
+    "lokal",
+    "petani",
+    "kakao",
+    "bali",
+    "artisan",
+    "yayobite",
+  ],
   openGraph: {
-    title: "Yayobite — Dari Petani ke Brownies Kamu",
+    title: "Yayobite — Brownies sehat untuk kamu",
     description:
-      "Brownies artisan lokal dari bahan kakao Bali. Setiap gigitan kamu mendukung petani lokal.",
+      "Brownies lokal dari bahan kakao Bali. Setiap gigitan kamu mendukung petani lokal.",
     type: "website",
   },
 };
@@ -37,9 +46,11 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${plusJakarta.variable} ${playfair.variable} h-full antialiased`}
+      className={`${manrope.variable} ${ebGaramond.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#faf5ee] text-[#3a302a]">
+        {children}
+      </body>
     </html>
   );
 }
