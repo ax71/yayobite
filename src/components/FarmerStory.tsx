@@ -24,7 +24,8 @@ export default function FarmerStory() {
           >
             <div className="space-y-4">
               <h2 className="font-headline text-4xl md:text-6xl text-[#3D2B1F] leading-[1.1] font-bold text-center md:text-left">
-                Kenalin, Pak Made. Pahlawan di Balik Cokelatmu.
+                Yuk Kenalin Sama Pak Made, Pahlawan di Balik Brownies, Yang
+                Kalian Makan.
               </h2>
             </div>
 
