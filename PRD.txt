@@ -1,0 +1,56 @@
+PRD: Landing Page QR Code - "Dari Petani ke Brownies Kamu"
+
+1. Ringkasan Proyek
+Membuat landing page berbasis QR Code yang mengedepankan storytelling transparan untuk produk brownies lokal. Fokus utama adalah membangun koneksi emosional antara konsumen dan petani melalui visual yang modern dan minimalis.
+
+2. Target Audiens & Gaya Visual
+Audiens: Gen Z dan Milenial yang peduli pada isu sosial/lokal.
+Gaya (Vibe): Minimalis, bersih, profesional namun santai (tidak kaku seperti skripsi), dan mobile-optimized.
+
+3. Struktur Konten (Flow)
+A. Hero Section (First Impression)
+Headline: "Dari Petani ke Brownies Kamu".
+Sub-headline: "Snack kamu hari ini bantu siapa, sih?".
+Visual: Placeholder untuk video pendek (5-10 detik) atau foto bahan baku (kakao/gula aren).
+
+B. Cerita Petani (Social Value Core)
+Format: Short storytelling.
+Konten: Memperkenalkan "Pak Made", petani kakao dari Bali yang merawat bahan baku brownies.
+Elemen: Foto asli petani dan lokasi untuk meningkatkan kredibilitas.
+
+C. Journey Produk (Transparency)
+Visualisasi alur produksi dalam 5 tahap menggunakan ikon atau foto riil:
+Petani panen.
+Pengolahan bahan baku.
+Proses produksi (oleh tim kamu).
+Menjadi produk brownies.
+Sampai ke tangan konsumen.
+
+D. Manfaat Produk (Unique Selling Point)
+Poin Utama: Lebih rendah gula, menggunakan bahan lokal, dan dibuat fresh.
+Tone: "Enak? iya. Lebih sehat? juga iya.".
+
+E. Real Impact (Social Proof)
+Menampilkan data angka untuk impresi juri dan kredibilitas:
+10+ Petani lokal terlibat.
+100+ Produk terjual.
+0 Bahan impor utama.
+
+F. Call to Action (CTA)
+Tujuan: Mengarahkan ke Instagram (follow perjalanan) atau link pemesanan ulang.
+
+4. Spesifikasi Teknis (Tech Stack)
+Framework: Next.js (App Router) dengan TypeScript.
+UI Library: shadcn/ui (menggunakan komponen Card, Badge, Button, dan Accordion).
+Styling: Tailwind CSS dengan pendekatan Mobile-First.
+Animation: Framer Motion untuk transisi halus antar section.
+
+5. Key Performance Indicators (Lomba Fokus)
+Tujuan Mulia: Menunjukkan dampak sosial yang nyata.
+Inovasi: Penggunaan QR Code untuk transparency experience.
+Branding: Konsistensi gaya desain modern dan Gen Z.
+
+6. Pantangan (Avoid)
+Dilarang menggunakan teks terlalu panjang (Gen Z akan skip).
+Hindari bahasa yang terlalu formal.
+Jangan biarkan ada bagian yang hanya berisi teks tanpa visual atau angka.
