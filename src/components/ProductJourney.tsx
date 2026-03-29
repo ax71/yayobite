@@ -29,7 +29,7 @@ const steps = [
 
 export default function ProductJourney() {
   return (
-    <section id="journey" className="px-6 py-24 md:py-32 max-w-7xl mx-auto">
+    <section id="thejourney" className="px-6 py-12 md:py-24 max-w-7xl mx-auto">
       <motion.div
         className="text-center mb-10"
         initial={{ opacity: 0, y: 24 }}

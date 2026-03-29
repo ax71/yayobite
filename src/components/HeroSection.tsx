@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative px-4 sm:px-6 lg:px-8 py-12 md:py-24 max-w-[1400px] mx-auto">
+    <section className="relative px-6 sm:px-6 lg:px-8 py-12 md:py-24 max-w-[1400px] mx-auto">
       <div className="flex flex-col-reverse md:grid md:grid-cols-12 items-center gap-12 lg:gap-20">
         <div className="md:col-span-7 z-10 text-center md:text-left">
           <motion.h1
@@ -29,7 +29,7 @@ export default function HeroSection() {
           <motion.div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6">
             <Link
               href="#order"
-              className="bg-primary text-white px-8 py-3.5 rounded-full font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all w-full sm:w-auto text-center shadow-md"
+              className="bg-primary text-white w-[220px] md:w-full lg:w-auto px-6 py-2.5 md:py-3.5 rounded-full font-bold text-sm md:text-lg hover:shadow-xl hover:-translate-y-1 transition-all text-center shadow-md active:scale-95"
             >
               Dukung Petani Lokal
             </Link>

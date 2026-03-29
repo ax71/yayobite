@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react"; // Tambah X untuk icon tutup
+import { Menu, X, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -10,104 +10,106 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const closeMenu = () => setMobileOpen(false);
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-lg shadow-sm py-3"
-          : "bg-transparent py-5"
+          ? "bg-white/90 backdrop-blur-md shadow-sm py-2 md:py-3"
+          : "bg-transparent py-4 md:py-6"
       }`}
     >
-      <div className="flex justify-between items-center w-full px-6 md:px-10 lg:px-12 mx-auto transition-all">
+      <div className="flex justify-between items-center w-full px-5 md:px-10 lg:px-12 mx-auto">
         <Link
-          href="#"
-          className="text-2xl md:text-3xl font-headline italic font-bold text-primary tracking-tighter shrink-0"
+          href="/"
+          className="text-xl md:text-3xl font-headline italic font-bold text-primary tracking-tighter shrink-0"
         >
           Yayobite
         </Link>
 
         <div className="hidden md:flex items-center gap-8 lg:gap-12">
+          {["Products", "Our Story", "The Journey", "Impact"].map((item) => (
+            <Link
+              key={item}
+              href={`#${item.toLowerCase().replace(" ", "")}`}
+              className="text-[#3D2B1F] font-bold hover:text-primary transition-colors text-xs uppercase tracking-widest"
+            >
+              {item}
+            </Link>
+          ))}
           <Link
-            href="#cerita"
-            className="text-[#3D2B1F] font-bold hover:text-primary transition-colors text-xs uppercase tracking-widest"
-          >
-            Our Story
-          </Link>
-          <Link
-            href="#journey"
-            className="text-[#3D2B1F] font-bold hover:text-primary transition-colors text-xs uppercase tracking-widest"
-          >
-            The Journey
-          </Link>
-          <Link
-            href="#impact"
-            className="text-[#3D2B1F] font-bold hover:text-primary transition-colors text-xs uppercase tracking-widest"
-          >
-            Impact
-          </Link>
-
-          <Link
-            href="https://wa.me/628153888886?text=Halo!%20Saya%20mau%20order%20Yayobite%20brownies%20dong%20kak!"
+            href="https://wa.me/628153888886"
             target="_blank"
-            rel="noopener noreferrer"
-            className="bg-primary text-white px-6 py-3 rounded-full font-bold hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95 text-sm shadow-md"
+            className="bg-primary text-white px-6 py-2.5 rounded-full font-bold hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm shadow-md"
           >
             Order Now
           </Link>
         </div>
 
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center">
           <button
-            className="text-primary p-2 hover:bg-primary/5 rounded-lg transition-colors"
+            className="text-primary p-2 bg-primary/5 rounded-full"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle Menu"
           >
-            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-gray-100 flex flex-col p-8 gap-6 md:hidden"
-          >
-            <a
-              href="#cerita"
-              onClick={() => setMobileOpen(false)}
-              className="text-[#3D2B1F] font-bold text-lg border-b border-gray-50 pb-2"
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeMenu}
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm md:hidden -z-10"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute top-[100%] left-4 right-4 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden md:hidden"
             >
-              Our Story
-            </a>
-            <a
-              href="#journey"
-              onClick={() => setMobileOpen(false)}
-              className="text-[#3D2B1F] font-bold text-lg border-b border-gray-50 pb-2"
-            >
-              The Journey
-            </a>
-            <a
-              href="#impact"
-              onClick={() => setMobileOpen(false)}
-              className="text-[#3D2B1F] font-bold text-lg border-b border-gray-50 pb-2"
-            >
-              Impact
-            </a>
-            <a
-              href="#order"
-              onClick={() => setMobileOpen(false)}
-              className="bg-primary text-white px-6 py-4 rounded-full font-bold text-center text-lg shadow-lg"
-            >
-              Order Now
-            </a>
-          </motion.div>
+              <div className="flex flex-col p-4 gap-1">
+                {[
+                  { name: "Product", href: "/products" },
+                  { name: "Our Story", href: "#cerita" },
+                  { name: "The Journey", href: "#journey" },
+                  { name: "Impact", href: "#impact" },
+                ].map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={closeMenu}
+                    className="flex justify-between items-center px-5 py-4 text-[#3D2B1F] font-bold text-sm uppercase tracking-wider active:bg-gray-50 rounded-2xl transition-colors"
+                  >
+                    {link.name}
+                    <ArrowRight size={16} className="text-primary/40" />
+                  </a>
+                ))}
+
+                <div className="mt-2 p-2">
+                  <a
+                    href="https://wa.me/628153888886"
+                    onClick={closeMenu}
+                    className="flex items-center justify-center bg-primary text-white py-4 rounded-[1.25rem] font-bold text-base shadow-lg active:scale-[0.98] transition-all"
+                  >
+                    Order Now via WhatsApp
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
