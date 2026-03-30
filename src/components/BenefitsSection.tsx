@@ -1,14 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import {
-  Check,
-  ShoppingCart,
-  Camera,
-  QrCode,
-  Leaf,
-  MapPin,
-} from "lucide-react";
+import { ShoppingCart, Camera, QrCode, Leaf, MapPin } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 interface CounterProps {
@@ -48,7 +41,7 @@ const benefits = [
     title: "Triple Local Identity",
     icon: MapPin,
     description:
-      "Perpaduan Cokelat Local, Kopi Bali, dan Garam Pantai Amed dalam satu gigitan 'Coklat Bumi'.",
+      "Perpaduan Cokelat Local Jembrana, Kopi Bali, dan Garam Pantai Amed dalam satu gigitan 'Brownies Coklat Premium'.",
   },
   {
     title: "Upcycled Coffee Inovation",

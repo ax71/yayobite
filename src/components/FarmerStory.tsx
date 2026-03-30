@@ -88,7 +88,6 @@ export default function FarmerStory() {
             </div>
           </motion.div>
 
-          {/* 2. BAGIAN GAMBAR & KUTIPAN MOBILE */}
           <motion.div
             className="lg:col-span-5 w-full flex flex-col items-center lg:items-end gap-10"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -101,6 +100,7 @@ export default function FarmerStory() {
                 src="/pak-made.png"
                 alt="Pak Made Petani Kakao Bali"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
