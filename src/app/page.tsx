@@ -5,6 +5,7 @@ import ProductJourney from "@/components/ProductJourney";
 import ProductSection from "@/components/ProductSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import Footer from "@/components/Footer";
+import HowItMade from "@/components/HowItMade";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <main className="flex flex-col overflow-x-hidden">
         <HeroSection />
         <ProductSection />
+        <HowItMade />
         <FarmerStory />
         <ProductJourney />
         <BenefitsSection />

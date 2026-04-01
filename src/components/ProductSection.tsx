@@ -17,18 +17,15 @@ const containerVariants: Variants = {
 };
 
 export default function ProductSection() {
-  const featuredProducts: Product[] = products.slice(0, 4);
+  const featuredProducts: Product[] = products.slice(0, 3);
 
   return (
     <section
       id="products"
-      className="px-5 md:px-10 py-20 md:py-32 max-w-7xl mx-auto"
+      className="px-4 sm:px-6 lg:px-8 py-20 md:py-32 max-w-7xl mx-auto"
     >
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 md:mb-16">
         <div className="space-y-2">
-          <span className="text-primary font-bold uppercase tracking-[0.2em] text-xs">
-            Best Sellers
-          </span>
           <h2 className="font-headline text-3xl md:text-5xl lg:text-6xl font-bold text-[#3D2B1F] leading-[1.1]">
             Favorit Bulan Ini: <br className="hidden sm:block" />
             <span className="text-primary italic font-serif">

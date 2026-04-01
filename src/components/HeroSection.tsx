@@ -7,9 +7,9 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative px-6 sm:px-6 lg:px-8 py-12 md:py-24 max-w-[1400px] mx-auto">
-      <div className="flex flex-col-reverse md:grid md:grid-cols-12 items-center gap-12 lg:gap-20">
-        <div className="md:col-span-7 z-10 text-center md:text-left">
+    <section className="relative px-4 sm:px-6 lg:px-8 min-h-screen flex items-center pt-28 pb-16 max-w-7xl mx-auto w-full">
+      <div className="grid flex-col md:grid-cols-12 items-center gap-12 lg:gap-20 w-full">
+        <div className="md:col-span-7 text-center md:text-left">
           <motion.h1
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -26,18 +26,19 @@ export default function HeroSection() {
             balik setiap gigitan brownies kamu.
           </motion.p>
 
-          <motion.div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6">
+          <motion.div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-6 md:gap-8">
             <Link
               href="#order"
-              className="bg-primary text-white w-[220px] md:w-full lg:w-auto px-6 py-2.5 md:py-3.5 rounded-full font-bold text-sm md:text-lg hover:shadow-xl hover:-translate-y-1 transition-all text-center shadow-md active:scale-95"
+              className="bg-primary text-white w-[220px] lg:w-auto px-6 py-3.5 md:px-8 rounded-full font-bold text-sm md:text-lg hover:shadow-[0_15px_30px_-10px_rgba(234,88,12,0.4)] hover:-translate-y-1 transition-all text-center shadow-md active:scale-95"
             >
               Dukung Petani Lokal
             </Link>
+
             <Link
               href="#cerita"
-              className="group flex items-center gap-2 text-primary font-bold py-2"
+              className="group flex items-center gap-2 text-primary font-bold py-2 md:py-3.5"
             >
-              <span className="border-b-2 border-primary/30 group-hover:border-primary transition-all">
+              <span className="border-b-2 border-primary/30 group-hover:border-primary transition-all text-sm md:text-lg">
                 Pelajari Cerita Kami
               </span>
               <ArrowRight
@@ -49,14 +50,14 @@ export default function HeroSection() {
         </div>
 
         <motion.div
-          className="md:col-span-5 relative flex justify-center md:justify-end w-full"
+          className="md:col-span-5 flex justify-center md:justify-end"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <div className="relative w-full max-w-[280px] sm:max-w-[350px] lg:max-w-[420px] aspect-square">
-            <div className="absolute inset-0 bg-primary/15 rounded-full blur-[60px] md:blur-[80px] -z-10 scale-125" />
+          <div className="relative w-full max-w-[300px] sm:max-w-[360px] lg:max-w-[420px] aspect-square">
+            <div className="absolute inset-0 bg-primary/15 rounded-full blur-[70px] -z-10 scale-125" />
 
-            <div className="relative w-full h-full rounded-full overflow-hidden border-[8px] md:border-[14px] border-white shadow-2xl">
+            <div className="relative w-full h-full rounded-full overflow-hidden border-[10px] md:border-[14px] border-white shadow-2xl">
               <Image
                 src="/hero-image.svg"
                 alt="Brownies Cacao"

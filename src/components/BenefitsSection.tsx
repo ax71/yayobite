@@ -65,37 +65,44 @@ const stats = [
 
 export default function BenefitsSection() {
   return (
-    <section id="impact" className="px-6 py-24 md:py-32 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <section
+      id="impact"
+      className="px-5 md:px-6 py-16 md:py-32 max-w-7xl mx-auto"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         <motion.div
-          className="space-y-12"
+          className="space-y-10 md:space-y-12"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <div>
-            <h2 className="font-headline text-4xl md:text-6xl mb-10 font-bold leading-tight text-[#3D2B1F]">
+            <h2 className="font-headline text-3xl md:text-6xl mb-6 md:mb-10 font-bold leading-tight text-[#3D2B1F] text-center md:text-left">
               Inovasi Pangan <br />
-              <span className="text-primary italic font-serif text-3xl md:text-5xl">
+              <span className="text-primary italic font-serif text-2xl md:text-5xl">
                 berbasis kearifan lokal.
               </span>
             </h2>
 
-            <ul className="space-y-8">
+            <ul className="space-y-6 md:space-y-8">
               {benefits.map((benefit) => (
                 <li
                   key={benefit.title}
-                  className="flex gap-6 items-start group"
+                  className="flex gap-4 md:gap-6 items-start group"
                 >
-                  <div className="mt-1 bg-primary/10 p-3 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
-                    <benefit.icon size={24} strokeWidth={2} />
+                  <div className="mt-1 bg-primary/10 p-2.5 md:p-3 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm shrink-0">
+                    <benefit.icon
+                      size={20}
+                      className="md:w-6 md:h-6"
+                      strokeWidth={2}
+                    />
                   </div>
                   <div>
-                    <span className="font-extrabold text-xl block mb-2 text-[#3D2B1F]">
+                    <span className="font-extrabold text-lg md:text-xl block mb-1.5 md:mb-2 text-[#3D2B1F]">
                       {benefit.title}
                     </span>
-                    <p className="text-gray-600 text-lg leading-relaxed max-w-md">
+                    <p className="text-gray-600 text-sm md:text-lg leading-relaxed max-w-md">
                       {benefit.description}
                     </p>
                   </div>
@@ -104,17 +111,17 @@ export default function BenefitsSection() {
             </ul>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 md:gap-8 border-t border-orange-100 pt-10">
+          <div className="grid grid-cols-3 gap-3 md:gap-8 border-t border-orange-100 pt-8 md:pt-10">
             {stats.map((stat, index) => (
               <div key={stat.label} className="text-center md:text-left">
-                <span className="block text-3xl md:text-5xl font-headline font-bold text-primary mb-1">
+                <span className="block text-2xl sm:text-3xl md:text-5xl font-headline font-bold text-primary mb-1">
                   <AnimatedCounter
                     target={stat.value}
                     suffix={stat.suffix}
                     duration={1800 + index * 200}
                   />
                 </span>
-                <span className="text-[10px] md:text-xs uppercase font-extrabold tracking-widest text-gray-400">
+                <span className="text-[9px] sm:text-[10px] md:text-xs uppercase font-extrabold tracking-widest text-gray-400">
                   {stat.label}
                 </span>
               </div>
@@ -123,7 +130,7 @@ export default function BenefitsSection() {
         </motion.div>
 
         <motion.div
-          className="relative bg-[#3D2B1F] rounded-[3rem] p-10 md:p-16 overflow-hidden flex flex-col justify-center items-center text-center shadow-2xl"
+          className="relative bg-[#3D2B1F] rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-16 overflow-hidden flex flex-col justify-center items-center text-center shadow-2xl"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -131,25 +138,27 @@ export default function BenefitsSection() {
           id="order"
         >
           <div className="absolute top-0 right-0 opacity-10 scale-150 rotate-12 -translate-y-1/4 translate-x-1/4 pointer-events-none">
-            <span className="text-[250px] leading-none text-white">🍪</span>
+            <span className="text-[180px] md:text-[250px] leading-none text-white">
+              🍪
+            </span>
           </div>
 
           <div className="relative z-10">
-            <h3 className="font-headline text-4xl md:text-6xl text-white mb-8 font-bold leading-tight">
+            <h3 className="font-headline text-3xl md:text-6xl text-white mb-4 md:mb-8 font-bold leading-tight">
               Support local <br />
               Bali products 💛
             </h3>
-            <p className="font-body text-lg md:text-xl text-white/80 mb-12 max-w-sm mx-auto">
-              Bantu Petani lokal Bali dan ekosistem kopi lokal Bali dengan
+            <p className="font-body text-sm md:text-xl text-white/80 mb-8 md:mb-12 max-w-sm mx-auto">
+              Bantu petani lokal Bali dan ekosistem kopi lokal Bali dengan
               setiap box brownies yang kamu beli.
             </p>
 
-            <div className="flex flex-col items-center w-full gap-4 md:gap-5 mx-auto">
+            <div className="flex flex-col items-center w-full gap-3 md:gap-5 mx-auto">
               <a
                 href="https://wa.me/628153888886?text=Halo%20Yayobite!%20Saya%20tertarik%20pesan%20Coklat%20Bumi%20brownies%20bahan%20lokal%20Bali."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-primary text-white w-[220px] sm:w-[280px] md:w-full md:max-w-xs py-3.5 rounded-2xl font-bold text-sm md:text-lg flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-[0_10px_30px_-10px_rgba(234,88,12,0.5)]"
+                className="bg-primary text-white w-full sm:w-[280px] md:max-w-xs py-3.5 rounded-2xl font-bold text-sm md:text-lg flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-[0_10px_30px_-10px_rgba(234,88,12,0.5)]"
               >
                 <ShoppingCart size={20} className="shrink-0" />
                 <span className="whitespace-nowrap">Order via WhatsApp</span>
@@ -159,7 +168,7 @@ export default function BenefitsSection() {
                 href="https://instagram.com/yayobites"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 backdrop-blur-md text-white w-[200px] sm:w-[260px] md:w-full md:max-w-xs py-3 rounded-2xl font-bold text-xs md:text-lg flex items-center justify-center gap-3 hover:bg-white/20 hover:scale-105 active:scale-95 transition-all border border-white/20"
+                className="bg-white/10 backdrop-blur-md text-white w-full sm:w-[260px] md:max-w-xs py-3 rounded-2xl font-bold text-xs md:text-lg flex items-center justify-center gap-3 hover:bg-white/20 hover:scale-105 active:scale-95 transition-all border border-white/20"
               >
                 <Camera size={18} className="shrink-0" />
                 <span className="whitespace-nowrap">Explore @Yayobites</span>

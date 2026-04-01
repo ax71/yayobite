@@ -102,7 +102,7 @@ export default function ProductsPage() {
 
         <section className="px-6 max-w-7xl mx-auto">
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
             variants={cardVariants}
             initial="hidden"
             animate="visible"
