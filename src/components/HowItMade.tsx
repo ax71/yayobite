@@ -115,7 +115,7 @@ export default function ProcessTimeline() {
                   </motion.div>
 
                   <motion.div
-                    className="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-orange-50/50 hover:shadow-md transition-shadow duration-300 group"
+                    className="p-5 md:p-6 rounded-2xl shadow-sm border border-orange-50/50 hover:shadow-md transition-shadow duration-300 group"
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
